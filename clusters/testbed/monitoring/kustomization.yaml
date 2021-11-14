@@ -4,3 +4,8 @@ kind: Kustomization
 resources:
   - namespace.yaml
   - grafana
+
+configMapGenerator:
+- name: dashboard-gcp-cost
+  files:
+    - gcp_cost.json=./grafana/dashboards/gcp_cost.json

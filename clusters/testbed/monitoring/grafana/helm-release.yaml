@@ -42,3 +42,19 @@ spec:
       size: 2Gi
       accessModes:
       - ReadWriteOnce
+    grafana.ini:
+      plugins:
+        allow_loading_unsigned_plugins: doitintl-bigquery-datasource
+    plugins:
+        - https://github.com/doitintl/bigquery-grafana/archive/2.0.2.zip;doit-bigquery-datasource
+    datasources:
+    - name: audit-logs
+      type: doitintl-bigquery-datasource
+      access: proxy
+      isDefault: true
+      jsonData:
+          authenticationType: gce
+          defaultProject: dat-homelab
+          processingLocation: US
+      version: 2
+      readOnly: false
