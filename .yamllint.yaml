@@ -1,0 +1,4 @@
+
+ignore: |
+  *.enc.yaml
+  *.sops.yaml

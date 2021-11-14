@@ -31,6 +31,7 @@
 set -o errexit
 
 echo "INFO - Downloading Flux OpenAPI schemas"
+rm -rf /tmp/flux-crd-schemas/master-standalone-strict
 mkdir -p /tmp/flux-crd-schemas/master-standalone-strict
 curl -sL https://github.com/fluxcd/flux2/releases/latest/download/crd-schemas.tar.gz | tar zxf - -C /tmp/flux-crd-schemas/master-standalone-strict
 
@@ -58,7 +59,7 @@ find . -type f -name $kustomize_config -print0 | while IFS= read -r -d $'\0' fil
   do
     echo "INFO - Validating kustomization ${file/%$kustomize_config}"
     kustomize build "${file/%$kustomize_config}" $kustomize_flags | \
-      kubeval --ignore-missing-schemas --strict --additional-schema-locations=file:///tmp/flux-crd-schemas
+      kubeval --ignore-missing-schemas --strict --additional-schema-locations=file:///tmp/flux-crd-schemas --skip-kinds Secret
     if [[ ${PIPESTATUS[0]} != 0 ]]; then
       exit 1
     fi
