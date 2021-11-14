@@ -4,7 +4,8 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
 # - grafana-auth-google.enc.yaml
-- helm-release.yaml
+  - secrets.enc.yaml
+  - helm-release.yaml
 
 configMapGenerator:
 - name: dashboard-gcp-cost

@@ -4,5 +4,4 @@ kind: Kustomization
 resources:
   - flux-system
   - debugger
-  - core
   - monitoring
