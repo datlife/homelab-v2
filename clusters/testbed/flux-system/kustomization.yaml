@@ -6,5 +6,4 @@ resources:
   - gotk-sync.yaml
 
 patchesStrategicMerge:
-  - namespace.yaml
-  - sops_decryptor.yaml
+  - gotk-patches.yaml
