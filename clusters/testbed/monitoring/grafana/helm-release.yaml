@@ -28,7 +28,7 @@ spec:
     testFramework:
       enabled: false
     serviceMonitor:
-      enabled: true
+      enabled: false
     deploymentStrategy:
       type: Recreate
     env:
