@@ -48,13 +48,16 @@ spec:
     plugins:
         - https://github.com/doitintl/bigquery-grafana/archive/2.0.2.zip;doit-bigquery-datasource
     datasources:
-    - name: Google BigQuery
-      type: doitintl-bigquery-datasource
-      access: proxy
-      isDefault: true
-      jsonData:
-          authenticationType: gce
-          defaultProject: dat-homelab
-          processingLocation: US
-      version: 2
-      readOnly: false
+      datasources.yaml:
+        apiVersion: 1
+        datasources:
+          - name: Google BigQuery
+            type: doitintl-bigquery-datasource
+            access: proxy
+            isDefault: true
+            jsonData:
+                authenticationType: gce
+                defaultProject: dat-homelab
+                processingLocation: US
+            version: 2
+            readOnly: false
