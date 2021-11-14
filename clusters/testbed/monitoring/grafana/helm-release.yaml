@@ -32,7 +32,7 @@ spec:
       defaultMode: 0440
       mountPath: /etc/secrets/grafana-secrets
       readOnly: true
-    adminPassword: $__file{/etc/secrets/grafana-secrets/admin_password}
+    adminPassword: testpassword
     testFramework:
       enabled: false
     serviceMonitor:
