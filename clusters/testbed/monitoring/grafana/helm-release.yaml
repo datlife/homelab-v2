@@ -43,11 +43,11 @@ spec:
       GF_EXPLORE_ENABLED: true
       GF_PANELS_DISABLE_SANITIZE_HTML: true
       GF_LOG_FILTERS: rendering:debug
-    persistence:
-      enabled: true
-      size: 2Gi
-      accessModes:
-      - ReadWriteOnce
+    # persistence:
+    #   enabled: true
+    #   size: 2Gi
+    #   accessModes:
+    #   - ReadWriteOnce
     grafana.ini:
       plugins:
         allow_loading_unsigned_plugins: doitintl-bigquery-datasource
