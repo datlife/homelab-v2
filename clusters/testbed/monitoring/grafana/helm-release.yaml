@@ -26,7 +26,7 @@ spec:
         name: grafana
         namespace: flux-system
   values:
-    adminPassword: ${GRAFANA_ADMIN_PASSWORD}
+    adminPassword: $__file{/etc/secrets/grafana-secrets/admin_password}
     testFramework:
       enabled: false
     serviceMonitor:
@@ -48,7 +48,7 @@ spec:
     plugins:
         - https://github.com/doitintl/bigquery-grafana/archive/2.0.2.zip;doit-bigquery-datasource
     datasources:
-    - name: audit-logs
+    - name: Google BigQuery
       type: doitintl-bigquery-datasource
       access: proxy
       isDefault: true
