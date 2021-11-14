@@ -6,6 +6,10 @@ metadata:
 spec:
   serviceAccountName: kustomize-controller
   containers:
-  - image: google/cloud-sdk:slim
+  - image: google/cloud-sdk:alpine
     name: workload-identity-test
     command: ["sleep","infinity"]
+
+# kubectl exec -it workload-identity-test -n flux-system -- sh -c 'curl -H "Metadata-Flavor: Google" http://169.254.169.254/computeMetadata/v1/instance/service-accounts/'
+# default/
+# flux-sops-client@dat-homelab.iam.gserviceaccount.com/
