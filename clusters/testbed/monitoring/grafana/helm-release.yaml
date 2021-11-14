@@ -67,3 +67,9 @@ spec:
                 processingLocation: US
             version: 2
             readOnly: false
+
+postRenderers:
+    # Instruct helm-controller to use built-in "kustomize" post renderer.
+    - kustomize:
+        patchesStrategicMerge:
+          - patches.yaml
