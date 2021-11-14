@@ -9,7 +9,3 @@ spec:
   - image: google/cloud-sdk:slim
     name: workload-identity-test
     command: ["sleep","infinity"]
-  initContainers:
-  - name: init-kustomize-controller-sa
-    image: busybox:1.28
-    command: ['sh', '-c', "until nslookup kustomize-controller.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for kustomize-controller; sleep 2; done"]
