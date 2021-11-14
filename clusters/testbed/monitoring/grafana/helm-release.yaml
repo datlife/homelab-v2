@@ -26,6 +26,12 @@ spec:
         name: grafana
         namespace: monitoring
   values:
+    extraSecretMounts:
+    - name: grafana-auth-google-mount
+      secretName: grafana-secrets
+      defaultMode: 0440
+      mountPath: /etc/secrets/grafana-secrets
+      readOnly: true
     adminPassword: $__file{/etc/secrets/grafana-secrets/admin_password}
     testFramework:
       enabled: false
