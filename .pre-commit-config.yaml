@@ -1,8 +1,10 @@
 # See https://pre-commit.com for more information
 # See https://pre-commit.com/hooks.html for more hooks
 repos:
-- repo: https://github.com/zwennesm/pre-commit-k8s
-  rev: master
+- repo: https://github.com/k8s-at-home/sops-pre-commit
+  rev: v2.0.3
   hooks:
-  - id: pre-commit-k8s
-    entry: pre-commit-k8s
+  - id: forbid-secrets
+    name: Check for unencrypted Kubernetes secrets
+    description: "Forbid files containing unencrypted Kubernetes secrets to be commited"
+    files: ((^|/)*.(ya?ml)$)
