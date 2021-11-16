@@ -1,7 +1,6 @@
 .DS_Store
 .env
 
-
 # Local .terraform directories
 **/.terraform/*
 
