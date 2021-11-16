@@ -5,7 +5,7 @@ metadata:
   name: kustomize-controller
   namespace: flux-system
   annotations:
-    iam.gke.io/gcp-service-account: "flux-sops-client@dat-homelab.iam.gserviceaccount.com"
+    iam.gke.io/gcp-service-account: "flux-sops@dat-homelab.iam.gserviceaccount.com"
 ---
 apiVersion: v1
 kind: Namespace
