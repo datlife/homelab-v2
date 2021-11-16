@@ -1,4 +1,4 @@
 creation_rules:
   - path_regex: .*/clusters/.*\.ya?ml
     encrypted_regex: ^(data|stringData)$
-    gcp_kms: projects/dat-home-infra/locations/us-central1/keyRings/sops-vault/cryptoKeys/flux-key
+    gcp_kms: projects/dat-home-infra/locations/us-central1/keyRings/sops-vault/cryptoKeys/sops-key
