@@ -1,0 +1,18 @@
+{
+    "terraform-ls.rootModules": [
+        "infra/environments/dev",
+    ],
+    "terraform-ls.experimentalFeatures": {
+        "validateOnSave": true
+    },
+    "[terraform]": {
+        "editor.defaultFormatter": "hashicorp.terraform",
+        "editor.formatOnSave": true
+    },
+    "files.exclude": {
+        ".DS_Store": true,
+        "**/.terraform/*": true,
+        "**/*.tfstate": true,
+        "**/*.tfstate.*": true
+    }
+}
