@@ -19,6 +19,6 @@ resource "google_service_account_iam_binding" "flux-account-iam" {
   service_account_id = google_service_account.flux.name
   role               = "roles/iam.workloadIdentityUser"
   members = [
-    "serviceAccount:dat-homelab.svc.id.goog[flux-system/kustomize-controller]"
+    "serviceAccount:dat-home-infra.svc.id.goog[flux-system/kustomize-controller]"
   ]
 }
