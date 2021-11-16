@@ -14,3 +14,11 @@ resource "google_project_iam_binding" "flux" {
     "serviceAccount:${google_service_account.flux.email}",
   ]
 }
+
+resource "google_service_account_iam_binding" "flux-account-iam" {
+  service_account_id = google_service_account.flux.name
+  role               = "roles/iam.workloadIdentityUser"
+  members = [
+    "serviceAccount:dat-homelab.svc.id.goog[flux-system/kustomize-controller]"
+  ]
+}

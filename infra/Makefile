@@ -39,4 +39,8 @@ hack/import-key: # Check if key is imported
 
 hack/remove-key:
 	cd $(INFRA_ENV) && \
+	(terraform state list | grep google_kms_crypto_key.sops) || false; \
 	terraform state rm google_kms_crypto_key.sops
+
+kube-ctl/switch-context:
+	gcloud container clusters get-credentials testbed --region=us-central1-c
