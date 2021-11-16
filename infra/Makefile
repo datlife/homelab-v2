@@ -4,8 +4,11 @@ ENV       ?= dev
 REGION    ?= us-central1
 INFRA_ENV := $(TOP_DIR)/infra/environments/$(ENV)
 
-infra/init:
+infra/init: hack/import-key-ring hack/import-key
 	cd $(INFRA_ENV) && terraform init -upgrade
+
+infra/plan: infra/init
+	cd $(INFRA_ENV) && terraform plan
 
 # TODO add validation step
 infra/apply: hack/import-key-ring hack/import-key infra/refresh
@@ -31,7 +34,7 @@ hack/import-key-ring: # Check if key-ring is imported
 
 hack/import-key: # Check if key is imported
 	cd $(INFRA_ENV) && \
-	(terraform state list | grep google_kms_key.sops) || \
+	(terraform state list | grep google_kms_crypto_key.sops) || \
 	terraform import google_kms_crypto_key.sops "${PROJECT}/${REGION}/sops-vault/sops"
 
 hack/remove-key:
