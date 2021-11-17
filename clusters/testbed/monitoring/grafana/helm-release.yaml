@@ -30,4 +30,10 @@ spec:
   postRenderers:
       - kustomize:
           patchesStrategicMerge:
-            - ./patches.yaml
+            - kind: ServiceAccount
+              apiVersion: v1
+              metadata:
+                name: grafana
+                namespace: monitoring
+                annotations:
+                  iam.gke.io/gcp-service-account: "grafana-bigquery-reader@dat-homelab.iam.gserviceaccount.com"

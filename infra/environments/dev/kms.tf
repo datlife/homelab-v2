@@ -13,8 +13,8 @@ resource "google_kms_key_ring" "sops-vault" {
   }
 }
 
-resource "google_kms_crypto_key" "sops" {
-  name     = "sops"
+resource "google_kms_crypto_key" "sops-key" {
+  name     = "sops-key"
   key_ring = google_kms_key_ring.sops-vault.id
   lifecycle {
     prevent_destroy = false
