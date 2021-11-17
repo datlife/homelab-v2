@@ -7,10 +7,10 @@ resources:
   - secrets.enc.yaml
   - helm-release.yaml
 
-generatorOptions:
- disableNameSuffixHash: true
+# generatorOptions:
+#  disableNameSuffixHash: true
 
-configMapGenerator:
-- name: dashboard-gcp-cost
-  files:
-    - gcp_cost.json=./dashboards/gcp_cost.json
+# configMapGenerator:
+# - name: dashboard-gcp-cost
+#   files:
+#     - gcp_cost.json=./dashboards/gcp_cost.json

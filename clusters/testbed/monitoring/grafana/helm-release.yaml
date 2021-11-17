@@ -27,7 +27,7 @@ spec:
         namespace: monitoring
       valuesFile: values.yaml
 
-postRenderers:
-    - kustomize:
-        patchesStrategicMerge:
-          - patches.yaml
+  postRenderers:
+      - kustomize:
+          patchesStrategicMerge:
+            - patches.yaml
