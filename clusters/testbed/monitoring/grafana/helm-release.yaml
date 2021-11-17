@@ -23,9 +23,39 @@ spec:
       version: 6.17.5
       sourceRef:
         kind: HelmRepository
-        name: grafana
+        name: grafana 1679759908
         namespace: monitoring
-      valuesFile: ./values.yaml
+  values:
+    adminPassword: ${admin_password}
+    testFramework:
+      enabled: false
+    serviceMonitor:
+      enabled: false
+    deploymentStrategy:
+      type: Recreate
+    env:
+      GF_EXPLORE_ENABLED: true
+      GF_PANELS_DISABLE_SANITIZE_HTML: true
+      GF_LOG_FILTERS: rendering:debug
+    grafana.ini:
+      plugins:
+        allow_loading_unsigned_plugins: doitintl-bigquery-datasource
+    plugins:
+      - https://github.com/doitintl/bigquery-grafana/archive/2.0.2.zip;doit-bigquery-datasource
+    datasources:
+      datasources.yaml:
+        apiVersion: 1
+        datasources:
+          - name: Google BigQuery
+            type: doitintl-bigquery-datasource
+            access: proxy
+            isDefault: true
+            jsonData:
+              authenticationType: gce
+              defaultProject: dat-homelab
+              processingLocation: US
+            version: 2
+            readOnly: false
 
   postRenderers:
       - kustomize:
