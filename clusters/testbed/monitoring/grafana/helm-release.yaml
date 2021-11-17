@@ -25,9 +25,9 @@ spec:
         kind: HelmRepository
         name: grafana
         namespace: monitoring
-      valuesFile: values.yaml
+      valuesFile: ./values.yaml
 
   postRenderers:
       - kustomize:
           patchesStrategicMerge:
-            - patches.yaml
+            - ./patches.yaml
